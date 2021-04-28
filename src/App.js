@@ -46,7 +46,12 @@ function App() {
   };
 
   let classes = [];
-  classes = ['red', 'bold'].join(' ');
+  if(person.length<=2){
+    classes.push('red');
+  }
+  if(person.length<=1){
+    classes.push('bold');
+  }
 
   if(ShowPersons===true){
      personlist= (<div>
@@ -63,7 +68,7 @@ function App() {
   return (
     <div className="App">
       <h1>This is my first app</h1>
-      <p className={classes} >This is dynamic class</p>
+      <p className={classes.join(' ')} >This is dynamic class</p>
       <button style={style} onClick={()=>togglePersons()}>Toggle Persons</button>
       {personlist}
       
